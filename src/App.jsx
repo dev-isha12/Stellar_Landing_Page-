@@ -1010,13 +1010,6 @@ export default function App() {
         <div className="w-full">
           
 
-          <div className="mb-10 flex items-center gap-6 overflow-hidden">
-            <div className="h-px w-10 shrink-0 bg-gold" />
-            <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
-              Creative Studio — Est. 2019
-            </span>
-          </div>
-
           <h1 className="hero-h1 font-serif text-[clamp(3.5rem,7.5vw,8.5rem)] font-normal leading-[.95] tracking-[-.02em] max-md:text-[clamp(3rem,15vw,6rem)]">
             <span className="block overflow-hidden">
               <span className="hero-word inline-block translate-y-[115%]">We</span>
@@ -1028,6 +1021,13 @@ export default function App() {
               <span className="hero-word inline-block translate-y-[115%]">worlds</span>
             </span>
           </h1>
+
+          <div className="mt-10 flex items-center gap-6 overflow-hidden">
+            <div className="h-px w-10 shrink-0 bg-gold" />
+            <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
+              Creative Studio — Est. 2019
+            </span>
+          </div>
 
           <div className="mt-16 flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-8">
             <p className="hero-desc max-w-80 translate-y-4 text-[.9rem] leading-[1.9] text-cream/45 opacity-0">
@@ -1059,7 +1059,7 @@ export default function App() {
           <div id="hs-track" className="flex items-center will-change-transform">
             <div className="flex h-screen min-w-[55vw] shrink-0 flex-col justify-center px-[5vw] max-md:min-w-[90vw]">
               <p className="section-tag rv">Selected Work</p>
-              <h2 className="display-heading rv rv-d1 text-[clamp(2rem,4vw,3.5rem)]">
+              <h2 className="display-heading rv rv-d1">
                 Recent
                 <br />
                 <em>Projects</em>
@@ -1122,7 +1122,7 @@ export default function App() {
         <div className="relative z-[1] grid min-h-[75vh] grid-cols-[.85fr_1.15fr] gap-[6vw] px-[5vw] py-[10vw] max-lg:grid-cols-1 max-lg:gap-10">
           <div>
             <p className="section-tag rv">About the Studio</p>
-            <h2 className="display-heading rv rv-d1 mt-6 text-[clamp(2rem,4vw,3.5rem)]">
+            <h2 className="display-heading rv rv-d1 mt-6">
               Where <em>craft</em>
               <br />
               meets vision
@@ -1158,7 +1158,7 @@ export default function App() {
       </section>
 
       <section id="philosophy" className="relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
-        <SectionHeading kicker="Our Philosophy" className="text-[clamp(2rem,4vw,3.5rem)]">
+        <SectionHeading kicker="Our Philosophy">
           Three <em>principles</em>
         </SectionHeading>
         <div className="rv rv-d2 mt-24 grid grid-cols-3 gap-px bg-cream/5 max-lg:grid-cols-2 max-md:grid-cols-1">
@@ -1175,7 +1175,7 @@ export default function App() {
       </section>
 
       <section id="services" className="relative z-[1] px-[5vw] py-[10vw]">
-        <SectionHeading kicker="What We Do" className="text-[clamp(2rem,4vw,3.5rem)]">
+        <SectionHeading kicker="What We Do">
           Our <em>craft</em>
         </SectionHeading>
         <div className="rv rv-d2 mt-20 border-t border-cream/5">
@@ -1193,7 +1193,7 @@ export default function App() {
 
       <section className="process rv relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
         <p className="section-tag">How We Work</p>
-        <h2 className="display-heading text-[clamp(2rem,4vw,3.5rem)]">
+        <h2 className="display-heading">
           The <em>process</em>
         </h2>
         <div className="rv rv-d2 relative mt-24 flex max-lg:flex-col max-lg:gap-8 before:absolute before:left-8 before:right-8 before:top-[2.2rem] before:z-0 before:h-px before:bg-gold/15 max-lg:before:hidden">
@@ -1210,7 +1210,7 @@ export default function App() {
       </section>
 
       <section id="testi" className="testi relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
-        <SectionHeading kicker="Kind Words" center className="text-[clamp(2rem,4vw,3.5rem)]">
+        <SectionHeading kicker="Kind Words" center>
           Client <em>voices</em>
         </SectionHeading>
         <div className="mt-20">
@@ -1246,7 +1246,7 @@ export default function App() {
       </section>
 
       <div className="bigquote relative z-[1] overflow-hidden border-t border-gold/10 px-[5vw] py-[10vw] text-center">
-        <p id="bq" className="mx-auto translate-y-[30px] whitespace-nowrap font-serif text-[clamp(1.5rem,3.5vw,2.8rem)] font-normal italic leading-none text-cream opacity-0">
+        <p id="bq" className="mx-auto translate-y-[30px] whitespace-nowrap font-serif text-[clamp(.75rem,1.2vw,1rem)] font-normal italic leading-none tracking-widest text-cream/40 opacity-0">
           "The details are not the details - they make the design."
         </p>
         <p id="bqs" className="mt-8 text-[.7rem] uppercase tracking-[.3em] text-gold/50 opacity-0">- Charles Eames</p>

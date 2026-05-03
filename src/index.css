@@ -92,7 +92,7 @@
   }
 
   .display-heading {
-    @apply font-serif text-[clamp(2.2rem,4.2vw,3.8rem)] font-normal leading-[1.1] tracking-[-.01em] text-cream;
+    @apply font-serif text-[clamp(1.5rem,2.8vw,2.4rem)] font-normal leading-[1.15] tracking-[-.01em] text-cream;
   }
 
   .display-heading em {
