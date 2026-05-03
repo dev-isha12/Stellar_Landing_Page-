@@ -1010,7 +1010,14 @@ export default function App() {
         <div className="w-full">
           
 
-          <h1 className="hero-h1 font-serif text-[clamp(3rem,6vw,7.5rem)] font-normal leading-[1] tracking-[-.01em] max-md:text-[clamp(2.5rem,12vw,5rem)]">
+          <div className="mb-10 flex items-center gap-6 overflow-hidden">
+            <div className="h-px w-10 shrink-0 bg-gold" />
+            <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
+              Creative Studio — Est. 2019
+            </span>
+          </div>
+
+          <h1 className="hero-h1 font-serif text-[clamp(3.5rem,7.5vw,8.5rem)] font-normal leading-[.95] tracking-[-.02em] max-md:text-[clamp(3rem,15vw,6rem)]">
             <span className="block overflow-hidden">
               <span className="hero-word inline-block translate-y-[115%]">We</span>
             </span>
@@ -1021,12 +1028,6 @@ export default function App() {
               <span className="hero-word inline-block translate-y-[115%]">worlds</span>
             </span>
           </h1>
-          <div className="mb-10 flex items-center gap-6 overflow-hidden pt-5">
-            <div className="h-px w-10 shrink-0 bg-gold" />
-            <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
-              Creative Studio — Est. 2019
-            </span>
-          </div>
 
           <div className="mt-16 flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-8">
             <p className="hero-desc max-w-80 translate-y-4 text-[.9rem] leading-[1.9] text-cream/45 opacity-0">
@@ -1048,9 +1049,9 @@ export default function App() {
       </div>
 
       <div className="clip-block relative z-[1] flex h-[50vh] items-center justify-center overflow-hidden">
-        <p id="clip-txt" className="px-[5vw] text-center font-serif text-[clamp(2rem,5vw,5.5rem)] font-normal italic leading-[1.2] text-cream [clip-path:inset(0_100%_0_0)]">
+        <h5 id="clip-txt" className="px-[5vw] text-center font-serif text-[clamp(1rem,1.8vw,1.4rem)] font-normal italic leading-[1.6] tracking-wide text-cream [clip-path:inset(0_100%_0_0)]">
           We believe great design is felt before it is understood - it arrives like a shift in atmosphere.
-        </p>
+        </h5>
       </div>
 
       <div id="work" className="hs-outer relative z-[1]">
@@ -1058,7 +1059,7 @@ export default function App() {
           <div id="hs-track" className="flex items-center will-change-transform">
             <div className="flex h-screen min-w-[55vw] shrink-0 flex-col justify-center px-[5vw] max-md:min-w-[90vw]">
               <p className="section-tag rv">Selected Work</p>
-              <h2 className="display-heading rv rv-d1">
+              <h2 className="display-heading rv rv-d1 text-[clamp(2rem,4vw,3.5rem)]">
                 Recent
                 <br />
                 <em>Projects</em>
@@ -1121,7 +1122,7 @@ export default function App() {
         <div className="relative z-[1] grid min-h-[75vh] grid-cols-[.85fr_1.15fr] gap-[6vw] px-[5vw] py-[10vw] max-lg:grid-cols-1 max-lg:gap-10">
           <div>
             <p className="section-tag rv">About the Studio</p>
-            <h2 className="display-heading rv rv-d1 mt-6">
+            <h2 className="display-heading rv rv-d1 mt-6 text-[clamp(2rem,4vw,3.5rem)]">
               Where <em>craft</em>
               <br />
               meets vision
@@ -1157,7 +1158,7 @@ export default function App() {
       </section>
 
       <section id="philosophy" className="relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
-        <SectionHeading kicker="Our Philosophy">
+        <SectionHeading kicker="Our Philosophy" className="text-[clamp(2rem,4vw,3.5rem)]">
           Three <em>principles</em>
         </SectionHeading>
         <div className="rv rv-d2 mt-24 grid grid-cols-3 gap-px bg-cream/5 max-lg:grid-cols-2 max-md:grid-cols-1">
@@ -1174,15 +1175,15 @@ export default function App() {
       </section>
 
       <section id="services" className="relative z-[1] px-[5vw] py-[10vw]">
-        <SectionHeading kicker="What We Do">
+        <SectionHeading kicker="What We Do" className="text-[clamp(2rem,4vw,3.5rem)]">
           Our <em>craft</em>
         </SectionHeading>
         <div className="rv rv-d2 mt-20 border-t border-cream/5">
           {services.map(([num, title, desc]) => (
-            <div key={num} className="svc-row group relative grid cursor-pointer grid-cols-[60px_1fr_200px_40px] items-center gap-8 overflow-hidden border-b border-cream/5 py-10 transition-[padding] duration-300 ease-stellar-out hover:pl-6 max-lg:grid-cols-[48px_1fr_32px]">
+            <div key={num} className="svc-row group relative grid cursor-pointer grid-cols-[60px_1fr_200px_40px] items-center gap-8 overflow-hidden border-b border-cream/5 py-3 transition-[padding] duration-300 ease-stellar-out hover:pl-6 max-lg:grid-cols-[48px_1fr_32px]">
               <div className="absolute inset-y-0 left-0 w-0 bg-gold/5 transition-[width] duration-500 ease-stellar-out group-hover:w-full" />
               <span className="relative font-mono text-[.7rem] italic tracking-[.1em] text-cream/20">{num}</span>
-              <h3 className="relative font-serif text-[2.4rem] font-normal italic transition-colors duration-300 group-hover:text-goldLight">{title}</h3>
+              <h3 className="relative font-serif text-[clamp(1.1rem,1.8vw,1.5rem)] font-normal italic transition-colors duration-300 group-hover:text-goldLight">{title}</h3>
               <p className="relative text-[.8rem] leading-[1.7] text-cream/35 max-lg:hidden">{desc}</p>
               <span className="relative text-right text-base text-gold/60 transition-[color,transform] duration-300 group-hover:rotate-0 group-hover:text-goldLight lg:rotate-[-45deg]">{arrow}</span>
             </div>
@@ -1192,7 +1193,7 @@ export default function App() {
 
       <section className="process rv relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
         <p className="section-tag">How We Work</p>
-        <h2 className="display-heading">
+        <h2 className="display-heading text-[clamp(2rem,4vw,3.5rem)]">
           The <em>process</em>
         </h2>
         <div className="rv rv-d2 relative mt-24 flex max-lg:flex-col max-lg:gap-8 before:absolute before:left-8 before:right-8 before:top-[2.2rem] before:z-0 before:h-px before:bg-gold/15 max-lg:before:hidden">
@@ -1208,11 +1209,10 @@ export default function App() {
         </div>
       </section>
 
-      <section id="testi" className="testi rv relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
-        <p className="section-tag">Kind Words</p>
-        <h2 className="display-heading">
+      <section id="testi" className="testi relative z-[1] overflow-hidden px-[5vw] py-[12vw]">
+        <SectionHeading kicker="Kind Words" center className="text-[clamp(2rem,4vw,3.5rem)]">
           Client <em>voices</em>
-        </h2>
+        </SectionHeading>
         <div className="mt-20">
           <div id="tc-track" className="flex gap-8 transition-transform duration-700 ease-stellar-in-out">
             {testimonials.map((testimonial) => (
@@ -1246,7 +1246,7 @@ export default function App() {
       </section>
 
       <div className="bigquote relative z-[1] overflow-hidden border-t border-gold/10 px-[5vw] py-[10vw] text-center">
-        <p id="bq" className="mx-auto max-w-[900px] translate-y-[30px] font-serif text-[clamp(2rem,4.5vw,5rem)] font-normal italic leading-[1.3] text-cream opacity-0">
+        <p id="bq" className="mx-auto translate-y-[30px] whitespace-nowrap font-serif text-[clamp(1.5rem,3.5vw,2.8rem)] font-normal italic leading-none text-cream opacity-0">
           "The details are not the details - they make the design."
         </p>
         <p id="bqs" className="mt-8 text-[.7rem] uppercase tracking-[.3em] text-gold/50 opacity-0">- Charles Eames</p>
@@ -1256,8 +1256,8 @@ export default function App() {
         <div className="flex animate-ticker-giant gap-6 whitespace-nowrap">
           {Array.from({ length: 6 }).map((_, index) => (
             <span key={index} className="shrink-0">
-              <span className="font-serif text-[clamp(4rem,7vw,8rem)] font-normal italic tracking-[-.02em] text-cream/[.04] max-md:text-[clamp(3rem,10vw,5rem)]">We craft worlds&nbsp;</span>
-              <span className="font-serif text-[clamp(4rem,7vw,8rem)] font-normal italic tracking-[-.02em] text-gold/35 max-md:text-[clamp(3rem,10vw,5rem)]">{sparkle}&nbsp;</span>
+              <span className="font-serif text-[clamp(1.2rem,2.5vw,2rem)] font-normal italic tracking-[-.01em] text-cream/[.025] max-md:text-[clamp(1rem,6vw,2.5rem)]">We craft worlds&nbsp;</span>
+              <span className="font-serif text-[clamp(1.2rem,2.5vw,2rem)] font-normal italic tracking-[-.01em] text-gold/20 max-md:text-[clamp(1rem,6vw,2.5rem)]">{sparkle}&nbsp;</span>
             </span>
           ))}
         </div>
@@ -1267,7 +1267,7 @@ export default function App() {
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[60vw] max-h-[700px] w-[60vw] max-w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(168,119,42,.06)_0%,transparent_70%)]" />
         <div className="rv relative z-[1]">
           <p className="section-tag center">Get in Touch</p>
-          <h2 className="my-6 font-serif text-[clamp(3rem,6vw,7rem)] font-normal leading-[.9] tracking-[-.03em] text-cream max-md:text-[clamp(2.5rem,8vw,5rem)]">
+          <h2 className="my-6 font-serif text-[clamp(2.2rem,4.5vw,3.8rem)] font-normal leading-[1] tracking-[-.02em] text-cream max-md:text-[clamp(2rem,10vw,4.5rem)]">
             Let's build
             <br />
             <em className="block text-goldLight">something rare</em>

@@ -92,11 +92,11 @@
   }
 
   .display-heading {
-    @apply font-serif text-[clamp(2.8rem,5vw,6rem)] font-normal leading-[1.05] text-cream;
+    @apply font-serif text-[clamp(2.2rem,4.2vw,3.8rem)] font-normal leading-[1.1] tracking-[-.01em] text-cream;
   }
 
   .display-heading em {
-    @apply italic text-cream/30;
+    @apply italic text-goldLight;
   }
 
   .magnetic-link {
