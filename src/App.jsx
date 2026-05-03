@@ -1023,7 +1023,7 @@ export default function App() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="bg-goldLight px-6 py-[.6rem] text-[.65rem] font-normal uppercase tracking-[.25em] text-ink no-underline transition-colors duration-300 hover:bg-goldSoft">
+          <a href="#contact" className="bg-goldLight rounded-md px-6 py-[.6rem] text-[.65rem] font-normal uppercase tracking-[.25em] text-ink no-underline transition-colors duration-300 hover:bg-goldSoft">
             Hire Us
           </a>
         </div>
@@ -1041,7 +1041,7 @@ export default function App() {
             </span>
           </div>
 
-          <h1 className="hero-h1 font-serif text-[clamp(4rem,10.2vw,11.5rem)] font-normal leading-[.9] tracking-[-.02em] max-md:text-[clamp(3.5rem,19vw,6.5rem)]">
+          <h1 className="hero-h1 font-sans text-[clamp(4rem,10.2vw,11.5rem)] font-normal leading-[.9] tracking-[-.02em] max-md:text-[clamp(3.5rem,19vw,6.5rem)]">
             <span className="block overflow-hidden">
               <span className="hero-word inline-block translate-y-[115%]">We</span>
             </span>
