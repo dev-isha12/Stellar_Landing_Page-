@@ -1288,7 +1288,7 @@ export default function App() {
         </div>
       </div>
 
-      <section id="contact" className="relative z-[1] flex min-h-screen items-center justify-center overflow-hidden px-[5vw] py-[12vw] text-center">
+      <section id="contact" className="relative z-[1] flex min-h-[50vh] items-center justify-center overflow-hidden px-[5vw] py-[8vw] text-center">
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[60vw] max-h-[700px] w-[60vw] max-w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(168,119,42,.06)_0%,transparent_70%)]" />
         <div className="rv relative z-[1]">
           <p className="section-tag center">Get in Touch</p>
