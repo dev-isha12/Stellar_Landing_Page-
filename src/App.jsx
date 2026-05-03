@@ -993,7 +993,7 @@ export default function App() {
 
   return (
     <div ref={appRef} className="relative min-h-screen overflow-x-hidden bg-ink text-cream">
-      <div id="prog" className="pointer-events-none fixed left-0 top-0 z-[9500] h-px w-0 origin-left bg-gradient-to-r from-gold to-goldSoft transition-[width] duration-[50ms]" />
+      <div id="prog" className="pointer-events-none fixed left-0 top-0 z-[9500] h-[3px] w-0 origin-left bg-gradient-to-r from-gold to-goldSoft transition-[width] duration-[50ms]" />
       <div id="dot" className="cursor-dot" />
       <div id="ring" className="cursor-ring" />
 
@@ -1106,15 +1106,15 @@ export default function App() {
             {workItems.map((item, index) => (
               <div key={item.name} className="wcard flex h-screen min-w-[42vw] shrink-0 items-center justify-center px-[2vw] max-md:min-w-[88vw]">
                 <div className="wcard-box group relative w-full">
-                  <div className="relative overflow-hidden rounded-[2px]">
+                  <div className="relative overflow-hidden rounded-3xl">
                     <canvas
                       ref={(element) => {
                         workRefs.current[index] = element;
                       }}
-                      className="block h-[380px] w-full rounded-[2px] transition-transform duration-[800ms] ease-stellar-out group-hover:scale-[1.04]"
+                      className="block h-[380px] w-full rounded-3xl transition-transform duration-[800ms] ease-stellar-out group-hover:scale-[1.04]"
                       height="380"
                     />
-                    <div className="absolute left-5 top-5 bg-ink/60 px-3 py-[.3rem] font-mono text-[.6rem] uppercase tracking-[.3em] text-cream/60 backdrop-blur-md">
+                    <div className="absolute left-5 top-5 bg-ink/60 px-3 py-[.3rem] font-sans text-[.6rem] uppercase tracking-[.3em] text-cream/60 backdrop-blur-md">
                       {item.tag}
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink via-ink/20 to-transparent p-8 opacity-0 transition-opacity duration-500 ease-stellar-out group-hover:opacity-100">
@@ -1241,7 +1241,7 @@ export default function App() {
         <div className="mt-20">
           <div id="tc-track" className="flex gap-8 transition-transform duration-700 ease-stellar-in-out">
             {testimonials.map((testimonial) => (
-              <article key={testimonial.name} className="tc relative min-w-[calc(50%-1rem)] shrink-0 overflow-hidden rounded-[2px] border border-cream/5 bg-cream/[.025] p-14 transition-colors duration-500 hover:border-gold/30 max-lg:min-w-[calc(100%-1rem)]">
+              <article key={testimonial.name} className="tc relative min-w-[calc(50%-1rem)] shrink-0 overflow-hidden rounded-3xl border border-cream/5 bg-cream/[.025] p-14 transition-colors duration-500 hover:border-gold/30 max-lg:min-w-[calc(100%-1rem)]">
                 <div className="pointer-events-none absolute left-6 top-[-1rem] font-serif text-9xl leading-none text-gold/5">"</div>
                 <p className="relative z-[1] mb-8 font-serif text-[1.2rem] font-normal italic leading-[1.65] text-cream/75">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-4">
