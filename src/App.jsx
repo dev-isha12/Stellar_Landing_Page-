@@ -494,112 +494,37 @@ function useThreeScenes(bgRef, workRefs, aboutRef) {
       aboutCamera.position.z = width < 600 ? 32 : 25;
       aboutGroup = new THREE.Group();
 
-      const geometry = new THREE.BufferGeometry();
-      const count = 1450;
-      const points = new Float32Array(count * 3);
-      const colors = new Float32Array(count * 3);
-      const sizes = new Float32Array(count);
-      const arms = 5;
-      const maxRadius = 12.5;
-
-      for (let i = 0; i < count; i += 1) {
-        const branch = (i % arms) * ((Math.PI * 2) / arms);
-        const radius = Math.pow(Math.random(), 0.58) * maxRadius;
-        const spin = radius * 0.8;
-        const scatter = Math.pow(Math.random(), 2.1) * (0.18 + radius * 0.08);
-        const angle = branch + spin + (Math.random() - 0.5) * 0.62;
-        const center = Math.max(0, 1 - radius / maxRadius);
-        const outer = 1 - center;
-        const dust = Math.random();
-
-        points[i * 3] = Math.cos(angle) * radius + (Math.random() - 0.5) * scatter;
-        points[i * 3 + 1] = Math.sin(angle) * radius + (Math.random() - 0.5) * scatter;
-        points[i * 3 + 2] = (Math.random() - 0.5) * (4 + outer * 5);
-
-        colors[i * 3] = 0.86 + center * 0.12 + dust * 0.05;
-        colors[i * 3 + 1] = 0.45 + center * 0.35 + dust * 0.08;
-        colors[i * 3 + 2] = 0.58 + outer * 0.25 - center * 0.28;
-        sizes[i] = 1.35 + Math.random() * 2.6 + outer * 0.9;
-      }
-
-      geometry.setAttribute("position", new THREE.BufferAttribute(points, 3));
-      geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-      geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
-
-      aboutParticleMaterial = new THREE.ShaderMaterial({
-        uniforms: { t: { value: 0 } },
-        vertexShader: `
-          attribute float size;
-          attribute vec3 color;
-          varying vec3 vColor;
-          uniform float t;
-
-          void main(){
-            vColor=color;
-            vec3 p=position;
-            float pulse=.7+.3*sin(t*1.6+position.x*.8+position.y*.5);
-            vec4 mvPosition=modelViewMatrix*vec4(p,1.);
-            gl_PointSize=size*(56.0/-mvPosition.z)*pulse;
-            gl_Position=projectionMatrix*mvPosition;
-          }
-        `,
-        fragmentShader: `
-          varying vec3 vColor;
-
-          void main(){
-            vec2 edge=min(gl_PointCoord,1.0-gl_PointCoord);
-            float frame=smoothstep(0.02,0.08,min(edge.x,edge.y));
-            gl_FragColor=vec4(vColor,0.86*frame);
-          }
-        `,
+      const boxSize = 0.6;
+      const gridSize = 10;
+      const spacing = 1.5;
+      
+      const boxGeometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
+      const boxMaterial = new THREE.MeshBasicMaterial({
+        color: 0xd4a94e,
+        wireframe: true,
         transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
+        opacity: 0.25,
+        blending: THREE.AdditiveBlending
       });
-
-      aboutGroup.add(
-        new THREE.Points(
-          geometry,
-          aboutParticleMaterial
-        )
-      );
-
-      const coreGeometry = new THREE.BufferGeometry();
-      const coreCount = 460;
-      const corePoints = new Float32Array(coreCount * 3);
-      const coreColors = new Float32Array(coreCount * 3);
-      const coreSizes = new Float32Array(coreCount);
-
-      for (let i = 0; i < coreCount; i += 1) {
-        const p = i / coreCount;
-        const radius = Math.pow(p, 0.86) * 2.35;
-        const angle = p * Math.PI * 16.5;
-        const jitter = (1 - p) * 0.025 + p * 0.11;
-
-        corePoints[i * 3] = Math.cos(angle) * radius + (Math.random() - 0.5) * jitter;
-        corePoints[i * 3 + 1] = Math.sin(angle) * radius + (Math.random() - 0.5) * jitter;
-        corePoints[i * 3 + 2] = 1.1 + (Math.random() - 0.5) * 0.32;
-
-        coreColors[i * 3] = 1;
-        coreColors[i * 3 + 1] = 0.78 + Math.random() * 0.18;
-        coreColors[i * 3 + 2] = 0.32 + Math.random() * 0.22;
-        coreSizes[i] = 1.45 + Math.random() * 1.75 + (1 - p) * 1.4;
+      
+      const instancedMesh = new THREE.InstancedMesh(boxGeometry, boxMaterial, gridSize * gridSize * gridSize);
+      const dummy = new THREE.Object3D();
+      const offset = (gridSize * spacing) / 2 - (spacing / 2);
+      
+      let index = 0;
+      for (let x = 0; x < gridSize; x++) {
+        for (let y = 0; y < gridSize; y++) {
+          for (let z = 0; z < gridSize; z++) {
+            dummy.position.set(x * spacing - offset, y * spacing - offset, z * spacing - offset);
+            dummy.updateMatrix();
+            instancedMesh.setMatrixAt(index, dummy.matrix);
+            index++;
+          }
+        }
       }
-
-      coreGeometry.setAttribute("position", new THREE.BufferAttribute(corePoints, 3));
-      coreGeometry.setAttribute("color", new THREE.BufferAttribute(coreColors, 3));
-      coreGeometry.setAttribute("size", new THREE.BufferAttribute(coreSizes, 1));
-      aboutGroup.add(new THREE.Points(coreGeometry, aboutParticleMaterial));
-
-      const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xd4a94e, transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending });
-      const diskMaterial = new THREE.MeshBasicMaterial({ color: 0xd4a94e, transparent: true, opacity: 0.08, blending: THREE.AdditiveBlending, side: THREE.DoubleSide });
-      const rings = [
-        new THREE.Mesh(new THREE.TorusGeometry(2.15, 0.035, 8, 160), ringMaterial),
-        new THREE.Mesh(new THREE.TorusGeometry(1.22, 0.025, 8, 120), ringMaterial.clone()),
-        new THREE.Mesh(new THREE.RingGeometry(1.55, 2.25, 128), diskMaterial)
-      ];
-      rings[1].material.opacity = 0.32;
-      rings.forEach((ring) => aboutGroup.add(ring));
+      
+      aboutGroup.add(instancedMesh);
+      aboutGroup.userData = { grid: instancedMesh, gridSize, spacing, offset, dummy };
 
       aboutScene.add(aboutGroup);
     }
@@ -686,7 +611,54 @@ function useThreeScenes(bgRef, workRefs, aboutRef) {
 
       if (aboutGroup && aboutRenderer && aboutScene && aboutCamera) {
         if (aboutParticleMaterial) aboutParticleMaterial.uniforms.t.value = time;
+        if (aboutGroup.userData.grid) {
+          const { grid, gridSize, spacing, offset, dummy } = aboutGroup.userData;
+          let idx = 0;
+          
+          // Map normalized mouse (-1 to 1) to 3D grid space
+          const mouseX3D = currentMouseX * 14.0;
+          const mouseY3D = currentMouseY * 14.0;
+          const effectRadius = 7.0;
+          
+          for (let x = 0; x < gridSize; x++) {
+            for (let y = 0; y < gridSize; y++) {
+              for (let z = 0; z < gridSize; z++) {
+                const px = x * spacing - offset;
+                const py = y * spacing - offset;
+                const pz = z * spacing - offset;
+                
+                const dx = px - mouseX3D;
+                const dy = py - mouseY3D;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                let pullX = 0;
+                let pullY = 0;
+                let liftZ = 0;
+                
+                if (dist < effectRadius) {
+                   const force = Math.pow(Math.max(0, 1.0 - (dist / effectRadius)), 2.0);
+                   pullX = -(dx * force * 0.2); // slight pull towards cursor
+                   pullY = -(dy * force * 0.2);
+                   liftZ = force * 4.0; // dramatic lift towards camera
+                }
+                
+                const wave = Math.sin(px * 0.3 + time * 1.5) * Math.cos(pz * 0.3 + time * 1.2);
+                const scale = Math.max(0.1, 1.0 + wave * 0.3 + (liftZ * 0.2));
+                
+                dummy.position.set(px + pullX, py + wave * 1.2 + pullY, pz + liftZ);
+                dummy.rotation.set(time * 0.5 + px, time * 0.4 + py, time * 0.3 + pz + (liftZ * 0.4));
+                dummy.scale.set(scale, scale, scale);
+                dummy.updateMatrix();
+                
+                grid.setMatrixAt(idx, dummy.matrix);
+                idx++;
+              }
+            }
+          }
+          grid.instanceMatrix.needsUpdate = true;
+        }
         aboutGroup.rotation.z = time * 0.045;
+        aboutGroup.rotation.y = time * 0.15;
         aboutGroup.rotation.x = Math.sin(time * 0.18) * 0.04;
         aboutRenderer.render(aboutScene, aboutCamera);
       }
