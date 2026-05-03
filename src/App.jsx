@@ -981,22 +981,24 @@ export default function App() {
 
       <canvas ref={bgRef} id="bg" className="fixed inset-0 z-0 h-full w-full" />
 
-      <nav className="absolute inset-x-0 top-0 z-[200] flex items-center justify-between px-[5vw] py-8 max-md:py-6">
-        <a href="#top" className="font-serif text-[1.2rem] italic tracking-[.5em] text-cream no-underline">
+      <nav className="absolute inset-x-0 top-0 z-[200] flex items-center justify-between px-[5vw] py-10 max-md:py-8">
+        <a href="#top" className="group flex items-center gap-2 font-serif text-[1.4rem] italic tracking-[.2em] text-cream no-underline">
           Stellar
+          <span className="h-1 w-1 rounded-full bg-gold transition-transform duration-500 group-hover:scale-[1.5]" />
         </a>
-        <div className="flex items-center gap-12">
-          <ul className="flex list-none gap-10 max-md:hidden">
+        <div className="flex items-center gap-16">
+          <ul className="flex list-none gap-12 max-md:hidden">
             {["Work", "About", "Services", "Contact"].map((item) => (
               <li key={item}>
-                <a href={`#${item.toLowerCase()}`} className="text-[.65rem] uppercase tracking-[.3em] text-cream/40 no-underline transition-colors duration-300 hover:text-goldLight">
+                <a href={`#${item.toLowerCase()}`} className="relative block text-[.6rem] uppercase tracking-[.4em] text-cream/35 no-underline transition-colors duration-500 hover:text-cream after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-goldLight after:transition-[width] after:duration-500 hover:after:w-full">
                   {item}
                 </a>
               </li>
             ))}
           </ul>
-          <a href="#contact" className="bg-goldLight rounded-md px-6 py-[.6rem] text-[.65rem] font-normal uppercase tracking-[.25em] text-ink no-underline transition-colors duration-300 hover:bg-goldSoft">
-            Hire Us
+          <a href="#contact" className="group relative overflow-hidden rounded-full border border-gold/40 bg-transparent px-8 py-[.7rem] text-[.6rem] uppercase tracking-[.3em] text-cream no-underline transition-all duration-500 hover:border-goldLight hover:text-ink">
+            <span className="relative z-[1]">Hire Us</span>
+            <div className="absolute inset-0 translate-y-full bg-goldLight transition-transform duration-500 ease-stellar-out group-hover:translate-y-0" />
           </a>
         </div>
       </nav>
@@ -1006,14 +1008,9 @@ export default function App() {
           {star}
         </div>
         <div className="w-full">
-          <div className="mb-10 flex items-center gap-6 overflow-hidden">
-            <div className="h-px w-10 shrink-0 bg-gold" />
-            <span className="hero-sup-txt translate-x-[-30px] text-[.65rem] uppercase tracking-[.4em] text-gold opacity-0">
-              Design & Creative Direction - Est. 2019
-            </span>
-          </div>
+          
 
-          <h1 className="hero-h1 font-sans text-[clamp(4rem,10.2vw,11.5rem)] font-normal leading-[.9] tracking-[-.02em] max-md:text-[clamp(3.5rem,19vw,6.5rem)]">
+          <h1 className="hero-h1 font-serif text-[clamp(3rem,6vw,7.5rem)] font-normal leading-[1] tracking-[-.01em] max-md:text-[clamp(2.5rem,12vw,5rem)]">
             <span className="block overflow-hidden">
               <span className="hero-word inline-block translate-y-[115%]">We</span>
             </span>
@@ -1024,6 +1021,12 @@ export default function App() {
               <span className="hero-word inline-block translate-y-[115%]">worlds</span>
             </span>
           </h1>
+          <div className="mb-10 flex items-center gap-6 overflow-hidden pt-5">
+            <div className="h-px w-10 shrink-0 bg-gold" />
+            <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
+              Creative Studio — Est. 2019
+            </span>
+          </div>
 
           <div className="mt-16 flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-8">
             <p className="hero-desc max-w-80 translate-y-4 text-[.9rem] leading-[1.9] text-cream/45 opacity-0">
@@ -1109,7 +1112,7 @@ export default function App() {
       <section id="about" className="about relative z-[1] overflow-hidden bg-ink">
         <div className="about-visual relative min-h-screen overflow-hidden bg-[#10101c]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,169,78,.08),transparent_34%),linear-gradient(180deg,rgba(7,7,14,.15),rgba(7,7,14,.78))]" />
-          <div className="absolute left-[5vw] top-[4vw] font-serif text-[clamp(4rem,10vw,9rem)] font-bold italic leading-none tracking-[-.06em] text-gold/10">2019</div>
+
           <canvas ref={aboutRef} className="relative z-[1] block h-screen min-h-[720px] w-full max-md:min-h-[760px]" />
           <div className="absolute bottom-[5vw] right-[5vw] z-[2] font-mono text-[clamp(.56rem,1vw,.78rem)] uppercase tracking-[.55em] text-gold/55 max-md:bottom-10 max-md:left-[5vw] max-md:right-auto max-md:max-w-72 max-md:tracking-[.35em]">
             Stellar Studio - London
