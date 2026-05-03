@@ -1010,7 +1010,7 @@ export default function App() {
         <div className="w-full">
           
 
-          <h1 className="hero-h1 font-serif text-[clamp(3.5rem,7.5vw,8.5rem)] font-normal leading-[.95] tracking-[-.02em] max-md:text-[clamp(3rem,15vw,6rem)]">
+          <h1 className="hero-h1 font-serif text-[clamp(3.4rem,7.3vw,8.3rem)] font-normal leading-[.95] tracking-[-.02em] max-md:text-[clamp(2.9rem,14vw,5.8rem)]">
             <span className="block overflow-hidden">
               <span className="hero-word inline-block translate-y-[115%]">We</span>
             </span>
@@ -1180,10 +1180,10 @@ export default function App() {
         </SectionHeading>
         <div className="rv rv-d2 mt-20 border-t border-cream/5">
           {services.map(([num, title, desc]) => (
-            <div key={num} className="svc-row group relative grid cursor-pointer grid-cols-[60px_1fr_200px_40px] items-center gap-8 overflow-hidden border-b border-cream/5 py-3 transition-[padding] duration-300 ease-stellar-out hover:pl-6 max-lg:grid-cols-[48px_1fr_32px]">
+            <div key={num} className="svc-row group relative grid cursor-pointer grid-cols-[60px_1fr_200px_40px] items-center gap-8 overflow-hidden border-b border-cream/5 py-1.5 transition-[padding] duration-300 ease-stellar-out hover:pl-6 max-lg:grid-cols-[48px_1fr_32px]">
               <div className="absolute inset-y-0 left-0 w-0 bg-gold/5 transition-[width] duration-500 ease-stellar-out group-hover:w-full" />
               <span className="relative font-mono text-[.7rem] italic tracking-[.1em] text-cream/20">{num}</span>
-              <h3 className="relative font-serif text-[clamp(1.1rem,1.8vw,1.5rem)] font-normal italic transition-colors duration-300 group-hover:text-goldLight">{title}</h3>
+              <h3 className="relative font-serif text-[clamp(.85rem,1.4vw,1.15rem)] font-normal italic transition-colors duration-300 group-hover:text-goldLight">{title}</h3>
               <p className="relative text-[.8rem] leading-[1.7] text-cream/35 max-lg:hidden">{desc}</p>
               <span className="relative text-right text-base text-gold/60 transition-[color,transform] duration-300 group-hover:rotate-0 group-hover:text-goldLight lg:rotate-[-45deg]">{arrow}</span>
             </div>
