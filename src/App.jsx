@@ -1292,7 +1292,7 @@ export default function App() {
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[60vw] max-h-[700px] w-[60vw] max-w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(168,119,42,.06)_0%,transparent_70%)]" />
         <div className="rv relative z-[1]">
           <p className="section-tag center">Get in Touch</p>
-          <h2 className="my-6 font-serif text-[clamp(4rem,9vw,11rem)] font-normal leading-[.9] tracking-[-.03em] text-cream max-md:text-[clamp(3rem,12vw,7rem)]">
+          <h2 className="my-6 font-serif text-[clamp(3rem,6vw,7rem)] font-normal leading-[.9] tracking-[-.03em] text-cream max-md:text-[clamp(2.5rem,8vw,5rem)]">
             Let's build
             <br />
             <em className="block text-goldLight">something rare</em>

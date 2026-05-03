@@ -81,7 +81,7 @@
   .section-tag::before {
     content: "";
     display: block;
-    width: 14px;
+    width: 8px;
     height: 1px;
     flex-shrink: 0;
     background: theme("colors.gold");
