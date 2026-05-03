@@ -981,13 +981,13 @@ export default function App() {
 
       <canvas ref={bgRef} id="bg" className="fixed inset-0 z-0 h-full w-full" />
 
-      <nav className="absolute inset-x-0 top-0 z-[200] flex items-center justify-between px-[5vw] py-10 max-md:py-8">
-        <a href="#top" className="group flex items-center gap-2 font-serif text-[1.4rem] italic tracking-[.2em] text-cream no-underline">
+      <nav className="absolute inset-x-0 top-0 z-[200] flex items-center justify-between px-[5vw] py-6 max-md:py-5">
+        <a href="#top" className="group flex items-center gap-2 font-serif text-[1.2rem] italic tracking-[.2em] text-cream no-underline">
           Stellar
           <span className="h-1 w-1 rounded-full bg-gold transition-transform duration-500 group-hover:scale-[1.5]" />
         </a>
-        <div className="flex items-center gap-16">
-          <ul className="flex list-none gap-12 max-md:hidden">
+        <div className="flex items-center gap-8">
+          <ul className="flex list-none gap-6 max-md:hidden">
             {["Work", "About", "Services", "Contact"].map((item) => (
               <li key={item}>
                 <a href={`#${item.toLowerCase()}`} className="relative block text-[.6rem] uppercase tracking-[.4em] text-cream/35 no-underline transition-colors duration-500 hover:text-cream after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-goldLight after:transition-[width] after:duration-500 hover:after:w-full">
@@ -1022,7 +1022,7 @@ export default function App() {
             </span>
           </h1>
 
-          <div className="mt-10 flex items-center gap-6 overflow-hidden">
+          <div className="mt-6 flex items-center gap-6 overflow-hidden">
             <div className="h-px w-10 shrink-0 bg-gold" />
             <span className="hero-sup-txt translate-x-[-30px] text-[.62rem] uppercase tracking-[.45em] text-gold opacity-0">
               Creative Studio — Est. 2019
